@@ -3,819 +3,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="دليل الألوان الشامل للمصممين المصريين والعرب">
-    <title>كروماتيك برو | Chromatic Pro</title>
+    <meta name="description" content="دليل الألوان الشامل للمصممين المصريين - كروماتيك">
+    <title>كروماتيك | Chromatic - أحمد هشام</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. متغيرات النظام والتصميم الأساسي --- */
+        /* --- 1. أساسيات التصميم --- */
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e293b;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gray: #64748b;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
             --radius: 16px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            outline: none;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
+        
         body {
             font-family: 'Almarai', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--dark);
             overflow-x: hidden;
-            padding-bottom: 80px;
+            min-height: 100vh;
         }
 
-        /* --- 2. الهيدر والناف بار --- */
+        /* --- 2. الهيدر --- */
         header {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 1rem 5%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            position: sticky; top: 0; z-index: 1000;
+            padding: 15px 5%; border-bottom: 1px solid #eee;
         }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .nav-box {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
         }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.6rem;
-            color: var(--secondary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .logo span { color: var(--primary-color); }
-
-        nav { display: flex; gap: 10px; }
-
-        .nav-btn {
-            background: transparent;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-family: inherit;
-            font-weight: 600;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .nav-btn:hover { background: #eff6ff; color: var(--primary-color); }
-        .nav-btn.active { background: var(--secondary-color); color: white; }
-
-        /* --- 3. تصميم الصفحات (Grid System) --- */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            min-height: 80vh;
-        }
-
-        .section { display: none; opacity: 0; transform: translateY(20px); transition: 0.5s; }
-        .section.active { display: block; opacity: 1; transform: translateY(0); }
-
-        h1.page-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-        p.page-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- 4. الصفحة الرئيسية: الأقسام --- */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .category-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 25px;
-            box-shadow: var(--shadow-sm);
-            cursor: pointer;
-            transition: var(--transition);
-            border: 1px solid transparent;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: #e2e8f0;
-        }
-
-        .cat-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            box-shadow: var(--shadow-md);
-            flex-shrink: 0;
-        }
-
-        .cat-info h3 { font-size: 1.2rem; margin-bottom: 5px; }
-        .cat-info p { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* --- 5. صفحة التفاصيل (Deep Dive) --- */
-        .back-bar { margin-bottom: 30px; }
-        .back-btn {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: white; border: 1px solid #e2e8f0;
-            padding: 10px 20px; border-radius: 50px;
-            cursor: pointer; font-weight: 700; transition: var(--transition);
-        }
-        .back-btn:hover { background: #f1f5f9; }
-
-        .palette-section { margin-bottom: 60px; }
-        .palette-title {
-            font-size: 1.4rem; margin-bottom: 25px;
-            display: flex; align-items: center; gap: 10px;
-            color: var(--secondary-color);
-        }
-        .palette-title::before {
-            content: ''; width: 6px; height: 30px;
-            background: var(--primary-color); border-radius: 4px;
-        }
-
-        .colors-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px;
-        }
-
-        .color-item {
-            border-radius: 18px; overflow: hidden;
-            box-shadow: var(--shadow-sm); cursor: pointer;
-            transition: var(--transition); background: white;
-            position: relative;
-        }
-
-        .color-item:hover { transform: scale(1.03); box-shadow: var(--shadow-lg); }
-
-        .color-preview { height: 130px; width: 100%; position: relative; }
-        .color-details { padding: 12px; text-align: center; }
-        .color-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 2px; }
-        .color-hex { font-size: 0.8rem; color: var(--text-muted); font-family: monospace; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); cursor: pointer; }
+        .logo span { color: var(--primary); }
         
-        .copy-overlay {
-            position: absolute; top:0; left:0; width:100%; height:100%;
-            background: rgba(0,0,0,0.3); display: flex;
-            align-items: center; justify-content: center;
-            opacity: 0; transition: 0.2s; color: white; font-weight: bold;
+        nav { display: flex; gap: 5px; }
+        nav button {
+            background: transparent; border: none; padding: 8px 15px;
+            font-family: inherit; font-weight: 700; color: var(--gray);
+            cursor: pointer; transition: 0.3s;
         }
-        .color-item:hover .copy-overlay { opacity: 1; }
+        nav button.active, nav button:hover { color: var(--primary); background: #eff6ff; border-radius: 8px; }
 
-        /* --- 6. صفحة المقارنة (VS) --- */
-        .vs-container {
-            background: white; border-radius: 20px;
-            box-shadow: var(--shadow-lg); overflow: hidden;
-            border: 1px solid #e2e8f0;
+        /* --- 3. الأنيميشن والتنسيق العام --- */
+        main { max-width: 1200px; margin: 0 auto; padding: 40px 20px; min-height: 85vh; }
+        .section { display: none; }
+        .section.active { display: block; }
+
+        .fade-up { animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; transform: translateY(30px); }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* --- 4. صفحة البداية والمطور --- */
+        .center-container { max-width: 600px; margin: 60px auto; text-align: center; }
+        
+        .hero-logo { font-size: 4rem; font-weight: 900; margin-bottom: 15px; color: var(--dark); letter-spacing: -2px; }
+        .hero-logo span { color: var(--primary); }
+        .hero-desc { font-size: 1.2rem; line-height: 1.7; color: var(--gray); margin-bottom: 40px; }
+
+        .profile-card {
+            background: white; border: 1px solid #e2e8f0; border-radius: 24px; padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06); margin-bottom: 30px; transition: 0.3s;
         }
-        .vs-header {
-            padding: 20px; background: #f8fafc; border-bottom: 1px solid #e2e8f0;
-            display: flex; justify-content: center; gap: 20px; align-items: center;
+        .profile-card:hover { transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0,0,0,0.1); }
+        
+        .my-name { font-size: 1.4rem; font-weight: 800; color: var(--dark); margin-bottom: 5px; }
+        .my-title { display: inline-block; background: #eff6ff; color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; }
+        
+        .whatsapp-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: #25D366; color: white; text-decoration: none;
+            padding: 15px; border-radius: 12px; font-weight: 700; font-size: 1.1rem;
+            transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
+        .whatsapp-btn:hover { background: #20bd5a; transform: scale(1.02); }
+
+        .start-btn {
+            background: var(--dark); color: white; border: none; padding: 18px 60px;
+            border-radius: 50px; font-size: 1.2rem; font-weight: 700; cursor: pointer;
+            transition: 0.3s; margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .start-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); background: var(--primary); }
+
+        .prayer-box { margin-top: 30px; font-style: italic; color: #94a3b8; font-size: 0.9rem; }
+
+        /* --- 5. باقي التنسيقات (Home, VS, Quiz) --- */
+        h1.title { text-align: center; font-size: 2.2rem; margin-bottom: 10px; color: var(--dark); }
+        p.subtitle { text-align: center; color: var(--gray); margin-bottom: 40px; }
+
+        .cat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .cat-card {
+            background: var(--white); padding: 25px; border-radius: var(--radius);
+            box-shadow: var(--shadow); cursor: pointer; transition: 0.3s;
+            display: flex; align-items: center; gap: 20px; border: 1px solid transparent;
+        }
+        .cat-card:hover { transform: translateY(-5px); border-color: #cbd5e1; }
+        .cat-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+
+        .back-btn { display: inline-flex; align-items: center; padding: 10px 20px; background: var(--white); border: 1px solid #e2e8f0; border-radius: 50px; cursor: pointer; font-weight: 700; margin-bottom: 30px; }
+        .group-title { font-size: 1.3rem; margin: 30px 0 15px; padding-right: 15px; border-right: 4px solid var(--primary); color: var(--dark); }
+        .colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; }
+        .color-item { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); cursor: pointer; transition: 0.3s; }
+        .color-item:hover { transform: scale(1.05); }
+        .color-preview { height: 120px; width: 100%; position: relative; }
+        .color-info { padding: 10px; text-align: center; }
+        .color-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 3px; }
+        .color-hex { font-size: 0.75rem; color: var(--gray); font-family: monospace; }
+        .copy-hint { position: absolute; inset: 0; background: rgba(0,0,0,0.4); color: white; display: flex; align-items: center; justify-content: center; opacity: 0; font-weight: 700; transition: 0.2s; }
+        .color-item:hover .copy-hint { opacity: 1; }
+
+        .vs-box { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); }
+        .vs-header { padding: 20px; background: #f1f5f9; display: flex; justify-content: center; gap: 15px; align-items: center; }
         .vs-body { display: flex; height: 50vh; }
-        .vs-half {
-            flex: 1; display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            transition: background 0.5s ease;
-            position: relative;
-        }
-        
-        select.vs-select {
-            padding: 10px 30px; border-radius: 10px; border: 1px solid #cbd5e1;
-            font-size: 1rem; font-family: inherit; cursor: pointer;
-        }
+        .vs-half { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.4s; }
+        select { padding: 8px 15px; border-radius: 8px; border: 1px solid #ccc; font-family: inherit; }
 
-        /* --- 7. صفحة الاختبار (Quiz) --- */
-        .quiz-card {
-            background: white; max-width: 500px; margin: 0 auto;
-            border-radius: 24px; padding: 30px; box-shadow: var(--shadow-lg);
-            text-align: center;
-        }
-        .quiz-target {
-            width: 150px; height: 150px; border-radius: 50%;
-            margin: 0 auto 30px; box-shadow: var(--shadow-md);
-            border: 5px solid #f1f5f9; transition: 0.3s;
-        }
-        .quiz-options button {
-            display: block; width: 100%; padding: 15px; margin-bottom: 10px;
-            background: #f8fafc; border: 2px solid #e2e8f0;
-            border-radius: 12px; font-size: 1.1rem; font-weight: 600;
-            cursor: pointer; transition: 0.2s;
-        }
-        .quiz-options button:hover { background: #e2e8f0; }
-        .quiz-options button.correct { background: #dcfce7; border-color: #22c55e; color: #15803d; }
-        .quiz-options button.wrong { background: #fee2e2; border-color: #ef4444; color: #b91c1c; }
+        .quiz-box { max-width: 500px; margin: 0 auto; background: var(--white); padding: 30px; border-radius: 20px; text-align: center; box-shadow: var(--shadow); }
+        .quiz-target { height: 180px; width: 100%; border-radius: 15px; margin-bottom: 20px; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); }
+        .quiz-btn { display: block; width: 100%; padding: 12px; margin-bottom: 10px; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .quiz-btn:hover { background: #e2e8f0; }
+        .quiz-btn.correct { background: #dcfce7; border-color: #22c55e; color: #166534; }
+        .quiz-btn.wrong { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
 
-        /* --- 8. المودال (Popup) --- */
-        .modal-backdrop {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
-            z-index: 2000; display: none; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s;
-        }
-        .modal-backdrop.open { display: flex; opacity: 1; }
-        
-        .modal {
-            background: white; width: 90%; max-width: 450px;
-            border-radius: 24px; padding: 40px; text-align: center;
-            position: relative; transform: scale(0.9); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        .modal-backdrop.open .modal { transform: scale(1); }
+        .modal-wrap { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal-wrap.open { display: flex; }
+        .modal { background: var(--white); width: 90%; max-width: 450px; padding: 30px; border-radius: 20px; text-align: center; position: relative; animation: popIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28); }
+        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-circle { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .info-row { background: #f8fafc; padding: 15px; border-radius: 10px; margin-top: 10px; text-align: right; }
+        .info-row h4 { font-size: 0.8rem; color: var(--gray); margin-bottom: 5px; }
+        .info-row p { font-weight: 700; color: var(--dark); }
 
-        .close-modal {
-            position: absolute; top: 20px; right: 20px;
-            background: #f1f5f9; border: none; width: 35px; height: 35px;
-            border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: #64748b;
-        }
-        
-        .modal-swatch {
-            width: 100px; height: 100px; border-radius: 40%;
-            margin: 0 auto 20px; box-shadow: var(--shadow-md);
-            transform: rotate(-10deg);
-        }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #333; color: white; padding: 10px 25px; border-radius: 50px; opacity: 0; transition: 0.3s; pointer-events: none; }
+        .toast.show { opacity: 1; bottom: 50px; }
 
-        .tag {
-            display: inline-block; padding: 5px 12px; border-radius: 20px;
-            background: #f1f5f9; color: var(--text-muted); font-size: 0.8rem;
-            margin-bottom: 20px;
-        }
-
-        .info-grid {
-            display: grid; grid-template-columns: 1fr; gap: 10px; text-align: right;
-            background: #f8fafc; padding: 20px; border-radius: 16px; margin-top: 20px;
-        }
-        .info-item h4 { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 4px; }
-        .info-item p { font-size: 1rem; font-weight: 700; color: var(--text-main); }
-
-        /* --- Toast Notification --- */
-        .toast {
-            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-            background: #1e293b; color: white; padding: 12px 24px; border-radius: 50px;
-            font-weight: 600; font-size: 0.9rem; box-shadow: var(--shadow-lg);
-            opacity: 0; transition: 0.3s; pointer-events: none; z-index: 3000;
-        }
-        .toast.show { opacity: 1; bottom: 40px; }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
-            .vs-body { flex-direction: column; }
-            h1.page-title { font-size: 1.8rem; }
-        }
+        @media (max-width: 700px) { .nav-box { flex-direction: column; gap: 10px; } .vs-body { flex-direction: column; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <div class="logo">
-                Chrom<span>atic</span>
-            </div>
+        <div class="nav-box">
+            <div class="logo" onclick="app.go('landing')">Chrom<span>atic</span></div>
             <nav>
-                <button class="nav-btn active" onclick="app.router('home')" id="nav-home">الرئيسية</button>
-                <button class="nav-btn" onclick="app.router('vs')" id="nav-vs">المقارنة</button>
-                <button class="nav-btn" onclick="app.router('quiz')" id="nav-quiz">التحدي</button>
+                <button onclick="app.go('home')" id="btn-home">الرئيسية</button>
+                <button onclick="app.go('vs')" id="btn-vs">مقارنة</button>
+                <button onclick="app.go('quiz')" id="btn-quiz">اختبار</button>
+                <button onclick="app.go('about')" id="btn-about">عن المطور</button>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="home" class="section active">
-            <h1 class="page-title">موسوعة الألوان المصرية</h1>
-            <p class="page-subtitle">أكبر دليل بصري للمصممين.. درجات الألوان بأسمائها المتداولة في السوق المصري، جاهزة للنسخ والاستخدام.</p>
-            
-            <div class="categories-grid" id="categories-container">
+        <section id="landing" class="section active">
+            <div class="center-container">
+                <div class="fade-up delay-1">
+                    <div class="hero-logo">Chrom<span>atic</span></div>
+                    <p class="hero-desc">
+                        موسوعة الألوان المصرية. أول أداة مصممة خصيصاً لتدريب عين المصمم على ملاحظة الفروق الدقيقة بين درجات الألوان المتداولة في السوق المصري.
+                    </p>
                 </div>
+                
+                <button onclick="app.go('home')" class="start-btn fade-up delay-2">
+                    تصفح الموسوعة الآن 🚀
+                </button>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="center-container">
+                <h1 class="title fade-up delay-1">عن المطور</h1>
+                
+                <div class="profile-card fade-up delay-2">
+                    <div class="my-name">أحمد هشام الحناوي</div>
+                    <span class="my-title">Graphic Designer | خبرة عامين</span>
+                    
+                    <a href="https://wa.me/201063344184" target="_blank" class="whatsapp-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.0028 2C6.48625 2 1.99805 6.48817 1.99805 12.0047C1.99805 13.7667 2.45561 15.4855 3.34217 17.0223L2.07349 21.6521L6.81232 20.4093C8.28682 21.2148 9.94827 21.6315 11.9934 21.6315C17.5099 21.6315 21.998 17.1433 21.998 11.6268C21.998 6.11025 17.5099 2 12.0028 2Z" fill="white" fill-opacity="0.2"/><path d="M11.9979 2.94678C16.9859 2.94678 21.0456 7.00644 21.0456 11.9945C21.0456 16.9825 16.9859 21.0422 11.9979 21.0422C10.2222 21.0422 8.56303 20.5516 7.13524 19.697L6.69772 19.4354L3.65586 20.2335L4.47169 17.2575L4.18664 16.8041C3.25593 15.3248 2.76609 13.5857 2.76609 11.7827C2.76609 6.79471 6.82575 2.73505 11.8138 2.73505L11.9979 2.94678Z" stroke="white" stroke-width="2"/></svg>
+                        تواصل معي واتساب
+                    </a>
+                </div>
+
+                <div class="prayer-box fade-up delay-3">
+                    "نسألك الدعاء بظهر الغيب لكل من ساهم في هذا العمل"
+                    <br><br>
+                    © 2026 Ahmed Hesham. All rights reserved.
+                </div>
+            </div>
+        </section>
+
+        <section id="home" class="section">
+            <h1 class="title">موسوعة الألوان المصرية 🎨</h1>
+            <p class="subtitle">الدليل الشامل: أسماء الألوان المتداولة في السوق المصري، وكود كل لون.</p>
+            <div class="cat-grid" id="cat-container"></div>
         </section>
 
         <section id="details" class="section">
-            <div class="back-bar">
-                <button class="back-btn" onclick="app.router('home')">
-                    ← رجوع للقائمة الرئيسية
-                </button>
-            </div>
-            <h1 class="page-title" id="category-title"></h1>
-            <div id="palettes-container">
-                </div>
+            <button class="back-btn" onclick="app.go('home')">← رجوع للقائمة</button>
+            <h1 class="title" id="det-title"></h1>
+            <div id="det-container"></div>
         </section>
 
         <section id="vs" class="section">
-            <h1 class="page-title">المقارنة الدقيقة</h1>
-            <p class="page-subtitle">اختار لونين وشوف الفرق بينهم "على الطبيعة".</p>
-            
-            <div class="vs-container">
+            <h1 class="title">المقارنة (VS)</h1>
+            <div class="vs-box">
                 <div class="vs-header">
-                    <select id="vs-sel-1" class="vs-select" onchange="app.renderVS()"></select>
-                    <span>VS</span>
-                    <select id="vs-sel-2" class="vs-select" onchange="app.renderVS()"></select>
+                    <select id="sel1" onchange="app.renderVS()"></select>
+                    <b>ضد</b>
+                    <select id="sel2" onchange="app.renderVS()"></select>
                 </div>
                 <div class="vs-body">
-                    <div class="vs-half" id="vs-left">
-                        <h2 id="vs-name-1" style="font-size:1.5rem; margin-bottom:5px;"></h2>
-                        <span id="vs-hex-1" style="font-family:monospace; opacity:0.8;"></span>
+                    <div class="vs-half" id="vs1">
+                        <h2 id="name1"></h2> <span id="hex1" style="font-family:monospace"></span>
                     </div>
-                    <div class="vs-half" id="vs-right">
-                        <h2 id="vs-name-2" style="font-size:1.5rem; margin-bottom:5px;"></h2>
-                        <span id="vs-hex-2" style="font-family:monospace; opacity:0.8;"></span>
+                    <div class="vs-half" id="vs2">
+                        <h2 id="name2"></h2> <span id="hex2" style="font-family:monospace"></span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="quiz" class="section">
-            <h1 class="page-title">تحدي عين الصقر 🦅</h1>
-            <p class="page-subtitle">هل تقدر تميز بين الألوان المتشابهة؟</p>
-            
-            <div class="quiz-card">
-                <div class="quiz-target" id="quiz-target"></div>
-                <div class="quiz-options" id="quiz-options"></div>
-                <div id="quiz-feedback" style="height:20px; margin-top:15px; font-weight:bold;"></div>
-                <button onclick="app.nextQuiz()" id="quiz-next-btn" style="margin-top:20px; padding:10px 30px; background:var(--secondary-color); color:white; border:none; border-radius:50px; cursor:pointer; display:none;">السؤال التالي</button>
+            <h1 class="title">تحدي "عين الصقر" 🦅</h1>
+            <div class="quiz-box">
+                <div class="quiz-target" id="q-target"></div>
+                <div id="q-options"></div>
+                <div id="q-msg" style="height:20px; margin-top:10px; font-weight:bold;"></div>
+                <button onclick="app.newQ()" id="q-next" style="display:none; margin-top:15px; padding:10px 20px; background:#333; color:white; border:none; border-radius:20px; cursor:pointer;">السؤال التالي</button>
             </div>
         </section>
     </main>
 
-    <div class="modal-backdrop" id="modal-backdrop">
-        <div class="modal" id="modal-content">
-            <button class="close-modal" onclick="app.closeModal()">×</button>
-            <div class="modal-swatch" id="m-swatch"></div>
-            <span class="tag" id="m-hex"></span>
-            <h2 id="m-name" style="margin-bottom:5px; font-size:1.8rem;"></h2>
+    <div class="modal-wrap" id="modal-wrap" onclick="if(event.target==this) app.closeModal()">
+        <div class="modal">
+            <button onclick="app.closeModal()" style="position:absolute; top:15px; right:20px; border:none; background:none; font-size:1.5rem; cursor:pointer;">×</button>
+            <div class="modal-circle" id="m-color"></div>
+            <h2 id="m-name" style="margin-bottom:5px;"></h2>
+            <span id="m-hex" style="background:#eee; padding:5px 10px; border-radius:15px; font-size:0.8rem; font-family:monospace;"></span>
             
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>⚓ المثال الواقعي (Anchor)</h4>
-                    <p id="m-anchor"></p>
-                </div>
-                <div class="info-item">
-                    <h4>🧠 الإحساس (Mood)</h4>
-                    <p id="m-mood"></p>
-                </div>
+            <div class="info-row">
+                <h4>⚓ مثال واقعي:</h4>
+                <p id="m-anchor"></p>
             </div>
-            
-            <button onclick="app.copyFromModal()" style="margin-top:25px; width:100%; padding:15px; background:var(--primary-color); color:white; border:none; border-radius:12px; font-weight:700; cursor:pointer;">نسخ الكود</button>
+            <div class="info-row">
+                <h4>🧠 الإحساس (Mood):</h4>
+                <p id="m-mood"></p>
+            </div>
+            <button onclick="app.copyCurrent()" style="width:100%; margin-top:20px; padding:12px; background:var(--primary); color:white; border:none; border-radius:10px; font-weight:700; cursor:pointer;">نسخ الكود</button>
         </div>
     </div>
-
-    <div class="toast" id="toast">تم نسخ الكود بنجاح! 📋</div>
+    
+    <div class="toast" id="toast">تم النسخ بنجاح ✅</div>
 
     <script>
-        /**
-         * CHROMATIC PRO - DATABASE
-         * قاعدة بيانات شاملة وموسعة لتغطي السوق المصري
-         */
         const DB = {
             blue: {
                 id: 'blue', name: "الأزرق والسماوي", color: "#3b82f6",
                 groups: [
-                    {
-                        title: "أساسيات السماء والبحر",
-                        shades: [
-                            { name: "لبني (Light Blue)", hex: "#ADD8E6", anchor: "مريلة المدرسة / لبس البيبي", mood: "براءة، نظافة" },
-                            { name: "سماوي (Sky)", hex: "#87CEEB", anchor: "سماء الظهيرة الصافية", mood: "حرية، انطلاق" },
-                            { name: "بيبي بلو", hex: "#89CFF0", anchor: "غرف نوم الأطفال", mood: "نعومة، هدوء" },
-                            { name: "أكوا (Aqua)", hex: "#00FFFF", anchor: "مياه البيسين (المسبح)", mood: "انتعاش، صيف" }
-                        ]
-                    },
-                    {
-                        title: "الدرجات الرسمية والداكنة",
-                        shades: [
-                            { name: "أزرق صريح (Blue)", hex: "#0000FF", anchor: "شاشة الخطأ (Blue Screen)", mood: "تكنولوجي، صريح" },
-                            { name: "زهري (Royal)", hex: "#4169E1", anchor: "شعار بيبسي / غطاء القلم الجاف", mood: "حيوية، ثقة" },
-                            { name: "كحلي (Navy)", hex: "#000080", anchor: "بدلة الظابط / البليزر", mood: "وقار، سلطة، احترافية" },
-                            { name: "ليلي (Midnight)", hex: "#191970", anchor: "سماء الليل في الصحراء", mood: "غموض، سكون" }
-                        ]
-                    },
-                    {
-                        title: "التركواز والجنزاري",
-                        shades: [
-                            { name: "فيروزي (Turquoise)", hex: "#40E0D0", anchor: "خاتم الفيروز السيوي", mood: "روحاني، تراثي" },
-                            { name: "جنزاري (Teal)", hex: "#008080", anchor: "ريش الطاووس / الصدأ القديم", mood: "رقي، اتزان" },
-                            { name: "بترولي", hex: "#005f6b", anchor: "دهانات القطيفة المودرن", mood: "فخامة، عمق" },
-                            { name: "تيفاني", hex: "#0ABAB5", anchor: "علب المجوهرات", mood: "رقة، عالمية" }
-                        ]
-                    }
+                    { title: "الدرجات الفاتحة", shades: [ { name: "لبني (Light Blue)", hex: "#ADD8E6", anchor: "لبس المواليد", mood: "براءة" }, { name: "سماوي (Sky)", hex: "#87CEEB", anchor: "سماء الظهرية", mood: "انشراح" }, { name: "بيبي بلو", hex: "#89CFF0", anchor: "غرف الأطفال", mood: "هدوء" }, { name: "أزرق كهربائي", hex: "#7DF9FF", anchor: "نيون", mood: "طاقة" } ] },
+                    { title: "ألوان البحر", shades: [ { name: "تيفاني", hex: "#0ABAB5", anchor: "مجوهوات", mood: "رقة" }, { name: "أكوا", hex: "#00FFFF", anchor: "البيسين", mood: "انتعاش" }, { name: "فيروزي", hex: "#40E0D0", anchor: "الفيروز", mood: "تراثي" }, { name: "جنزاري", hex: "#008080", anchor: "ريش الطاووس", mood: "رقي" } ] },
+                    { title: "الغامق والرسمي", shades: [ { name: "أزرق صريح", hex: "#4169E1", anchor: "بيبسي", mood: "حيوية" }, { name: "كحلي", hex: "#000080", anchor: "بدلة ضباط", mood: "وقار" }, { name: "بترولي", hex: "#005f6b", anchor: "قطيفة", mood: "فخامة" }, { name: "نيلي", hex: "#4B0082", anchor: "جينز غامق", mood: "غموض" }, { name: "أزرق مصري", hex: "#1034A6", anchor: "النقوش الفرعونية", mood: "عظمة" } ] }
                 ]
             },
             red: {
                 id: 'red', name: "الأحمر والروز", color: "#ef4444",
                 groups: [
-                    {
-                        title: "درجات النار والدم",
-                        shades: [
-                            { name: "أحمر (Red)", hex: "#FF0000", anchor: "تيشيرت الأهلي / الطماطم", mood: "حماس، طاقة، خطر" },
-                            { name: "قرمزي (Crimson)", hex: "#DC143C", anchor: "دم الغزال", mood: "درامي، قوي" },
-                            { name: "نبيتي (Maroon)", hex: "#800000", anchor: "الكركديه / العناب", mood: "أصالة، دفء" },
-                            { name: "طوبي", hex: "#B22222", anchor: "الطوب الأحمر (مباني)", mood: "ريفي، صلابة" }
-                        ]
-                    },
-                    {
-                        title: "درجات الأنوثة والزهور",
-                        shades: [
-                            { name: "بمبي (Pink)", hex: "#FFC0CB", anchor: "فساتين البنات / غزل البنات", mood: "دلع، رقة" },
-                            { name: "فوشيا", hex: "#FF00FF", anchor: "إضاءة الأفراح النيون", mood: "صاخب، لافت للانتباه" },
-                            { name: "هوت بينك", hex: "#FF69B4", anchor: "ألعاب باربي", mood: "جريء، مرح" },
-                            { name: "كشمير (Dusty Rose)", hex: "#Dcaebb", anchor: "المفروشات والستائر المودرن", mood: "شياكة، هدوء" },
-                            { name: "بطيخي (Coral)", hex: "#FF7F50", anchor: "قلب البطيخة", mood: "لذيذ، صيفي" }
-                        ]
-                    }
-                ]
-            },
-            green: {
-                id: 'green', name: "الأخضر والطبيعة", color: "#22c55e",
-                groups: [
-                    {
-                        title: "خضار الأرض",
-                        shades: [
-                            { name: "أخضر زرعي", hex: "#008000", anchor: "الحقول والغيط", mood: "نماء، خير" },
-                            { name: "ليموني (Lime)", hex: "#32CD32", anchor: "عصير الليمون بالنعناع", mood: "لاسع، طاقة عالية" },
-                            { name: "بستاج (Pistachio)", hex: "#93C572", anchor: "الفستق الحلبي", mood: "شهي، مميز" }
-                        ]
-                    },
-                    {
-                        title: "درجات خاصة",
-                        shades: [
-                            { name: "زيتوني (Olive)", hex: "#556B2F", anchor: "الزيتون المخلل / الزي العسكري", mood: "تحمل، جدية" },
-                            { name: "منت جرين (Mint)", hex: "#98FF98", anchor: "آيس كريم النعناع", mood: "ناعم، منعش" },
-                            { name: "زمردي (Emerald)", hex: "#50C878", anchor: "مجوهرات الزمرد", mood: "ملكي، ثمين" },
-                            { name: "كرنبي", hex: "#2F4F4F", anchor: "ورق الكرنب الغامق", mood: "وقور، شتوي" }
-                        ]
-                    }
+                    { title: "نار ودم", shades: [ { name: "أحمر", hex: "#FF0000", anchor: "تيشيرت الأهلي", mood: "حماس" }, { name: "نبيتي", hex: "#800000", anchor: "ورد بلدي", mood: "أصالة" }, { name: "دم الغزال", hex: "#4A0404", anchor: "حناء", mood: "عمق" }, { name: "طوبي", hex: "#B22222", anchor: "طوب أحمر", mood: "صلابة" } ] },
+                    { title: "بمبي وكشمير", shades: [ { name: "كشمير", hex: "#Dcaebb", anchor: "مفروشات", mood: "موضة" }, { name: "بمبي", hex: "#FFC0CB", anchor: "فساتين", mood: "دلع" }, { name: "فوشيا", hex: "#FF00FF", anchor: "أفراح", mood: "صاخب" }, { name: "خوخي", hex: "#FFDAB9", anchor: "ميكب", mood: "ناعم" }, { name: "بطيخي", hex: "#FF7F50", anchor: "قلب البطيخة", mood: "لذيذ" } ] }
                 ]
             },
             yellow: {
                 id: 'yellow', name: "الأصفر والبرتقالي", color: "#f59e0b",
                 groups: [
-                    {
-                        title: "الشمس والذهب",
-                        shades: [
-                            { name: "أصفر كناري", hex: "#FFFF00", anchor: "عصفور الكناري", mood: "بهجة، طفولة" },
-                            { name: "ذهبي (Gold)", hex: "#FFD700", anchor: "الدهب عيار 21 (الغوايش)", mood: "ثراء، قيمة" },
-                            { name: "كهرماني (Amber)", hex: "#FFBF00", anchor: "حجر الكهرمان / إشارة المرور", mood: "تنبيه، طاقة" },
-                            { name: "مسطردة", hex: "#FFDB58", anchor: "برطمان المستردة", mood: "دافئ، شبابي" }
-                        ]
-                    },
-                    {
-                        title: "البرتقالي",
-                        shades: [
-                            { name: "برتقالي (Orange)", hex: "#FFA500", anchor: "البرتقال البلدي", mood: "فيتامين سي، نشاط" },
-                            { name: "سيمون (Salmon)", hex: "#FA8072", anchor: "سمك السالمون", mood: "رقيق، أنيق" },
-                            { name: "يوسفي (Tangerine)", hex: "#F28500", anchor: "قشر اليوسفي", mood: "عصري، منعش" },
-                            { name: "قرعي", hex: "#D35400", anchor: "قرع العسل", mood: "خريفي، دافئ" }
-                        ]
-                    }
+                    { title: "الأصفر", shades: [ { name: "أصفر", hex: "#FFFF00", anchor: "الشمس", mood: "إشراق" }, { name: "كناري", hex: "#FFEF00", anchor: "عصفور", mood: "بهجة" }, { name: "مسطردة", hex: "#FFDB58", anchor: "المستردة", mood: "دافئ" }, { name: "زعفراني", hex: "#F4C430", anchor: "زعفران", mood: "غني" }, { name: "مانجو", hex: "#F4BB44", anchor: "مانجا عويس", mood: "شهي" } ] },
+                    { title: "برتقالي ونحاسي", shades: [ { name: "برتقالي", hex: "#FFA500", anchor: "برتقال", mood: "نشاط" }, { name: "سيمون", hex: "#FA8072", anchor: "دهانات", mood: "مريح" }, { name: "هافان", hex: "#D2691E", anchor: "جلد", mood: "شياكة" }, { name: "نحاسي", hex: "#B87333", anchor: "أواني", mood: "عراقة" } ] }
                 ]
             },
-            purple: {
-                id: 'purple', name: "البنفسجي (الموف)", color: "#9333ea",
+            green: {
+                id: 'green', name: "الأخضر", color: "#22c55e",
                 groups: [
-                    {
-                        title: "الملوكية والغموض",
-                        shades: [
-                            { name: "موف (Purple)", hex: "#800080", anchor: "زهرة البنفسج", mood: "إبداع، حكمة" },
-                            { name: "لافندر", hex: "#E6E6FA", anchor: "اللافندر المجفف", mood: "استرخاء، عطر" },
-                            { name: "باذنجاني", hex: "#483248", anchor: "الباذنجان الرومي", mood: "ثقيل، شتوي، داكن" },
-                            { name: "أرجواني (Magenta)", hex: "#FF00FF", anchor: "أحبار الطابعة", mood: "توازن، ابتكار" }
-                        ]
-                    }
+                    { title: "الطبيعة", shades: [ { name: "أخضر زرعي", hex: "#008000", anchor: "الغيط", mood: "نماء" }, { name: "ليموني", hex: "#32CD32", anchor: "ليمون", mood: "لاسع" }, { name: "زيتوني", hex: "#556B2F", anchor: "زي عسكري", mood: "تحمل" }, { name: "تفاحي", hex: "#8DB600", anchor: "تفاح", mood: "نضارة" } ] },
+                    { title: "مودرن", shades: [ { name: "منت جرين", hex: "#98FF98", anchor: "آيس كريم", mood: "منعش" }, { name: "فستقي", hex: "#93C572", anchor: "فستق", mood: "مميز" }, { name: "زمردي", hex: "#50C878", anchor: "مجوهرات", mood: "ثمين" }, { name: "جيشي", hex: "#4B5320", anchor: "مموه", mood: "خشن" } ] }
                 ]
             },
             neutral: {
-                id: 'neutral', name: "الألوان المحايدة والبني", color: "#475569",
+                id: 'neutral', name: "محايد وبني", color: "#64748b",
                 groups: [
-                    {
-                        title: "مقياس الرمادي",
-                        shades: [
-                            { name: "أسود (Black)", hex: "#000000", anchor: "الفحم / الليل", mood: "فخامة، سيد الألوان" },
-                            { name: "أبيض (White)", hex: "#FFFFFF", anchor: "القطن / الثلج", mood: "نقاء، بداية جديدة" },
-                            { name: "رصاصي (Grey)", hex: "#808080", anchor: "سن القلم الرصاص", mood: "حياد، توازن" },
-                            { name: "فيراني (Charcoal)", hex: "#36454F", anchor: "الأسفلت / الدخان", mood: "عملي، صناعي" },
-                            { name: "فضي (Silver)", hex: "#C0C0C0", anchor: "أواني الاستانلس", mood: "عصري، بارد" }
-                        ]
-                    },
-                    {
-                        title: "درجات البيج والبني",
-                        shades: [
-                            { name: "بني (Brown)", hex: "#8B4513", anchor: "حبوب القهوة / الخشب", mood: "استقرار، أرضي" },
-                            { name: "هافان (Tan)", hex: "#D2691E", anchor: "الشنط والجاكيت الجلد", mood: "كلاسيك، شيك" },
-                            { name: "بيج (Beige)", hex: "#F5F5DC", anchor: "رمل الصحراء", mood: "بساطة، وسع" },
-                            { name: "جملي (Camel)", hex: "#C19A6B", anchor: "وبر الجمل / بالطو شتوي", mood: "دفء، تراث" },
-                            { name: "شامبين", hex: "#F7E7CE", anchor: "فساتين السهرة", mood: "احتفال، رقي" },
-                            { name: "كاكاو", hex: "#6f4e37", anchor: "مشروب الكاكاو باللبن", mood: "راحة، شتاء" }
-                        ]
-                    }
+                    { title: "فواتح", shades: [ { name: "أبيض", hex: "#FFFFFF", anchor: "قطن", mood: "نقاء" }, { name: "أوف وايت", hex: "#F8F8FF", anchor: "فستان فرح", mood: "وسع" }, { name: "عاجي", hex: "#FFFFF0", anchor: "عاج", mood: "قيمة" }, { name: "بيج", hex: "#F5F5DC", anchor: "رمل", mood: "حياد" } ] },
+                    { title: "رماديات", shades: [ { name: "رصاصي", hex: "#808080", anchor: "قلم رصاص", mood: "توازن" }, { name: "فيراني", hex: "#36454F", anchor: "أسفلت", mood: "عملي" }, { name: "أسود", hex: "#000000", anchor: "ليل", mood: "فخامة" } ] },
+                    { title: "بنيات", shades: [ { name: "بني", hex: "#8B4513", anchor: "خشب", mood: "استقرار" }, { name: "جملي", hex: "#C19A6B", anchor: "وبر جمل", mood: "دفء" }, { name: "كافيه", hex: "#C5A582", anchor: "نسكافيه", mood: "هدوء" }, { name: "كاكاو", hex: "#6f4e37", anchor: "كاكاو", mood: "شتاء" } ] }
                 ]
+            },
+            purple: {
+                id: 'purple', name: "الموف", color: "#9333ea",
+                groups: [ { title: "كل الدرجات", shades: [ { name: "موف", hex: "#800080", anchor: "بنفسج", mood: "إبداع" }, { name: "لافندر", hex: "#E6E6FA", anchor: "ورد مجفف", mood: "استرخاء" }, { name: "بتنجاني", hex: "#483248", anchor: "باذنجان", mood: "داكن" }, { name: "ماجينتا", hex: "#FF00FF", anchor: "حبر", mood: "ابتكار" } ] } ]
+            },
+            metal: {
+                id: 'metal', name: "معادن", color: "#FFD700",
+                groups: [ { title: "المعادن", shades: [ { name: "ذهبي", hex: "#FFD700", anchor: "دهب 21", mood: "ثراء" }, { name: "فضي", hex: "#C0C0C0", anchor: "سيارات", mood: "تكنولوجيا" }, { name: "برونز", hex: "#CD7F32", anchor: "ميدالية", mood: "قوة" }, { name: "نحاسي", hex: "#B87333", anchor: "أواني", mood: "عراقة" } ] } ]
             }
         };
 
-        /**
-         * APP CONTROLLER
-         * المتحكم الرئيسي في التطبيق
-         */
         const app = {
-            state: {
-                currentCategory: null,
-                allShades: []
-            },
+            currentShade: null,
+            allShades: [],
 
             init: function() {
-                this.flattenShades();
+                Object.values(DB).forEach(cat => {
+                    cat.groups.forEach(g => {
+                        g.shades.forEach(s => this.allShades.push(s));
+                    });
+                });
                 this.renderHome();
                 this.initVS();
             },
 
-            // تحويل قاعدة البيانات لقائمة مسطحة لاستخدامها في البحث والمقارنة
-            flattenShades: function() {
-                let list = [];
-                Object.values(DB).forEach(cat => {
-                    cat.groups.forEach(g => {
-                        g.shades.forEach(s => list.push(s));
-                    });
-                });
-                this.state.allShades = list;
-            },
-
-            // حساب التباين (أبيض وأسود)
-            getContrastYIQ: function(hexcolor) {
-                hexcolor = hexcolor.replace("#", "");
-                var r = parseInt(hexcolor.substr(0, 2), 16);
-                var g = parseInt(hexcolor.substr(2, 2), 16);
-                var b = parseInt(hexcolor.substr(4, 2), 16);
-                var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
-                return (yiq >= 180) ? '#1e293b' : '#ffffff';
-            },
-
-            // التنقل بين الصفحات
-            router: function(pageId) {
-                // Hide all sections
+            go: function(pageId) {
                 document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-                // Show target
                 document.getElementById(pageId).classList.add('active');
                 
-                // Update Nav
-                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-                if(document.getElementById(`nav-${pageId}`)) {
-                    document.getElementById(`nav-${pageId}`).classList.add('active');
-                }
-
-                if(pageId === 'home') {
-                    window.scrollTo(0,0);
-                }
-                if(pageId === 'quiz') {
-                    this.nextQuiz();
-                }
+                document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+                if(document.getElementById(`btn-${pageId}`)) document.getElementById(`btn-${pageId}`).classList.add('active');
+                
+                if(pageId === 'landing' || pageId === 'home') window.scrollTo(0,0);
+                if(pageId === 'quiz') this.newQ();
             },
 
-            // رسم الصفحة الرئيسية
             renderHome: function() {
-                const container = document.getElementById('categories-container');
-                container.innerHTML = '';
+                const con = document.getElementById('cat-container');
+                con.innerHTML = '';
                 Object.values(DB).forEach(cat => {
+                    let count = 0;
+                    cat.groups.forEach(g => count += g.shades.length);
                     const card = document.createElement('div');
-                    card.className = 'category-card';
-                    card.onclick = () => this.openCategory(cat.id);
-                    card.innerHTML = `
-                        <div class="cat-icon" style="background:${cat.color}">
-                            🎨
-                        </div>
-                        <div class="cat-info">
-                            <h3>${cat.name}</h3>
-                            <p>${this.getCategoryCount(cat)} درجة لونية</p>
-                        </div>
-                    `;
-                    container.appendChild(card);
+                    card.className = 'cat-card';
+                    card.onclick = () => this.openCat(cat.id);
+                    card.innerHTML = `<div class="cat-icon" style="background:${cat.color}">🎨</div><div><h3 style="margin-bottom:5px">${cat.name}</h3><span style="color:#888; font-size:0.9rem">${count} درجة لونية</span></div>`;
+                    con.appendChild(card);
                 });
             },
 
-            getCategoryCount: function(cat) {
-                let count = 0;
-                cat.groups.forEach(g => count += g.shades.length);
-                return count;
-            },
-
-            // فتح تفاصيل فئة معينة
-            openCategory: function(id) {
+            openCat: function(id) {
                 const cat = DB[id];
-                document.getElementById('category-title').innerText = cat.name;
-                const container = document.getElementById('palettes-container');
-                container.innerHTML = '';
-
-                cat.groups.forEach(group => {
-                    const groupDiv = document.createElement('div');
-                    groupDiv.className = 'palette-section';
-                    
-                    const title = document.createElement('h3');
-                    title.className = 'palette-title';
-                    title.innerText = group.title;
-                    groupDiv.appendChild(title);
-
+                document.getElementById('det-title').innerText = cat.name;
+                const con = document.getElementById('det-container');
+                con.innerHTML = '';
+                cat.groups.forEach(g => {
+                    const div = document.createElement('div');
+                    div.innerHTML = `<h3 class="group-title">${g.title}</h3>`;
                     const grid = document.createElement('div');
                     grid.className = 'colors-grid';
-
-                    group.shades.forEach(shade => {
-                        const div = document.createElement('div');
-                        div.className = 'color-item';
-                        div.onclick = () => this.openModal(shade);
-                        div.innerHTML = `
-                            <div class="color-preview" style="background:${shade.hex}">
-                                <div class="copy-overlay">نسخ</div>
-                            </div>
-                            <div class="color-details">
-                                <div class="color-name">${shade.name}</div>
-                                <div class="color-hex">${shade.hex}</div>
-                            </div>
-                        `;
-                        grid.appendChild(div);
+                    g.shades.forEach(s => {
+                        const item = document.createElement('div');
+                        item.className = 'color-item';
+                        item.onclick = () => this.openModal(s);
+                        item.innerHTML = `<div class="color-preview" style="background:${s.hex}"><div class="copy-hint">نسخ</div></div><div class="color-info"><div class="color-name">${s.name}</div><div class="color-hex">${s.hex}</div></div>`;
+                        grid.appendChild(item);
                     });
-
-                    groupDiv.appendChild(grid);
-                    container.appendChild(groupDiv);
+                    div.appendChild(grid);
+                    con.appendChild(div);
                 });
-
-                this.router('details');
+                this.go('details');
             },
 
-            // المودال
             openModal: function(shade) {
-                this.currentModalShade = shade;
-                const modal = document.getElementById('modal-content');
-                const backdrop = document.getElementById('modal-backdrop');
-                
-                document.getElementById('m-swatch').style.backgroundColor = shade.hex;
+                this.currentShade = shade;
+                document.getElementById('m-color').style.backgroundColor = shade.hex;
                 document.getElementById('m-name').innerText = shade.name;
                 document.getElementById('m-hex').innerText = shade.hex;
                 document.getElementById('m-anchor').innerText = shade.anchor;
                 document.getElementById('m-mood').innerText = shade.mood;
-                
-                backdrop.classList.add('open');
-                
-                // نسخ تلقائي عند الفتح
-                this.copyToClipboard(shade.hex);
+                document.getElementById('modal-wrap').classList.add('open');
             },
-
-            closeModal: function() {
-                document.getElementById('modal-backdrop').classList.remove('open');
-            },
-
-            copyFromModal: function() {
-                if(this.currentModalShade) {
-                    this.copyToClipboard(this.currentModalShade.hex);
-                }
-            },
-
-            copyToClipboard: function(text) {
-                navigator.clipboard.writeText(text).then(() => {
-                    const toast = document.getElementById('toast');
-                    toast.classList.add('show');
-                    setTimeout(() => toast.classList.remove('show'), 2000);
+            closeModal: function() { document.getElementById('modal-wrap').classList.remove('open'); },
+            copyCurrent: function() { if(this.currentShade) this.copyText(this.currentShade.hex); },
+            copyText: function(txt) {
+                navigator.clipboard.writeText(txt).then(() => {
+                    const t = document.getElementById('toast');
+                    t.classList.add('show');
+                    setTimeout(() => t.classList.remove('show'), 2000);
                 });
             },
 
-            // صفحة المقارنة
             initVS: function() {
-                const s1 = document.getElementById('vs-sel-1');
-                const s2 = document.getElementById('vs-sel-2');
-                
-                // ملء القوائم
-                this.state.allShades.forEach((s, i) => {
+                const s1 = document.getElementById('sel1');
+                const s2 = document.getElementById('sel2');
+                this.allShades.forEach((s, i) => {
                     s1.add(new Option(s.name, i));
                     s2.add(new Option(s.name, i));
                 });
-
-                // ضبط قيم افتراضية مثيرة للاهتمام (جنزاري vs فيروزي)
-                const tealIdx = this.state.allShades.findIndex(s => s.name.includes('جنزاري'));
-                const turqIdx = this.state.allShades.findIndex(s => s.name.includes('فيروزي'));
-                
-                s1.value = tealIdx > -1 ? tealIdx : 0;
-                s2.value = turqIdx > -1 ? turqIdx : 1;
-                
+                const can = this.allShades.findIndex(x => x.name.includes('كناري'));
+                const yel = this.allShades.findIndex(x => x.name === 'أصفر');
+                s1.value = can > -1 ? can : 0;
+                s2.value = yel > -1 ? yel : 1;
                 this.renderVS();
             },
-
             renderVS: function() {
-                const i1 = document.getElementById('vs-sel-1').value;
-                const i2 = document.getElementById('vs-sel-2').value;
-                const s1 = this.state.allShades[i1];
-                const s2 = this.state.allShades[i2];
-
-                const l = document.getElementById('vs-left');
-                const r = document.getElementById('vs-right');
-
-                l.style.backgroundColor = s1.hex;
-                r.style.backgroundColor = s2.hex;
-                
-                l.style.color = this.getContrastYIQ(s1.hex);
-                r.style.color = this.getContrastYIQ(s2.hex);
-
-                document.getElementById('vs-name-1').innerText = s1.name;
-                document.getElementById('vs-hex-1').innerText = s1.hex;
-                
-                document.getElementById('vs-name-2').innerText = s2.name;
-                document.getElementById('vs-hex-2').innerText = s2.hex;
+                const sh1 = this.allShades[document.getElementById('sel1').value];
+                const sh2 = this.allShades[document.getElementById('sel2').value];
+                const v1 = document.getElementById('vs1');
+                const v2 = document.getElementById('vs2');
+                v1.style.backgroundColor = sh1.hex;
+                v2.style.backgroundColor = sh2.hex;
+                v1.style.color = this.isLight(sh1.hex) ? '#333' : '#fff';
+                v2.style.color = this.isLight(sh2.hex) ? '#333' : '#fff';
+                document.getElementById('name1').innerText = sh1.name;
+                document.getElementById('hex1').innerText = sh1.hex;
+                document.getElementById('name2').innerText = sh2.name;
+                document.getElementById('hex2').innerText = sh2.hex;
+            },
+            isLight: function(hex) {
+                const r = parseInt(hex.substr(1,2),16);
+                const g = parseInt(hex.substr(3,2),16);
+                const b = parseInt(hex.substr(5,2),16);
+                return ((r*299 + g*587 + b*114)/1000) > 180;
             },
 
-            // الكويز
-            nextQuiz: function() {
-                document.getElementById('quiz-next-btn').style.display = 'none';
-                document.getElementById('quiz-feedback').innerText = '';
-                const optsDiv = document.getElementById('quiz-options');
-                optsDiv.innerHTML = '';
-
-                // اختيار فائز
-                const list = this.state.allShades;
-                const winner = list[Math.floor(Math.random() * list.length)];
-
-                // اختيار مموهات
-                let options = [winner];
-                while(options.length < 3) {
-                    let r = list[Math.floor(Math.random() * list.length)];
-                    // نتأكد إن الاختيار مش نفس الفائز ومش مكرر
-                    if(!options.includes(r)) options.push(r);
+            newQ: function() {
+                document.getElementById('q-next').style.display = 'none';
+                document.getElementById('q-msg').innerText = '';
+                const box = document.getElementById('q-options');
+                box.innerHTML = '';
+                const winner = this.allShades[Math.floor(Math.random() * this.allShades.length)];
+                let opts = [winner];
+                while(opts.length < 3) {
+                    let r = this.allShades[Math.floor(Math.random() * this.allShades.length)];
+                    if(!opts.includes(r)) opts.push(r);
                 }
-                options.sort(() => Math.random() - 0.5);
-
-                // الرسم
-                document.getElementById('quiz-target').style.backgroundColor = winner.hex;
-
-                options.forEach(opt => {
+                opts.sort(() => Math.random() - 0.5);
+                document.getElementById('q-target').style.backgroundColor = winner.hex;
+                opts.forEach(o => {
                     const btn = document.createElement('button');
-                    btn.innerText = opt.name; // الاسم فقط هو التحدي
+                    btn.className = 'quiz-btn';
+                    btn.innerText = o.name;
                     btn.onclick = () => {
-                        // تجميد الأزرار
-                        Array.from(optsDiv.children).forEach(b => b.disabled = true);
-                        
-                        if(opt === winner) {
+                        Array.from(box.children).forEach(b => b.disabled = true);
+                        if(o === winner) {
                             btn.classList.add('correct');
-                            document.getElementById('quiz-feedback').innerText = "ممتاز! عينك ميزان 🎯";
-                            document.getElementById('quiz-feedback').style.color = "green";
+                            document.getElementById('q-msg').innerText = "صح! برافو عليك 🎯";
+                            document.getElementById('q-msg').style.color = "green";
                         } else {
                             btn.classList.add('wrong');
-                            // إظهار الصحيح
-                            Array.from(optsDiv.children).forEach(b => {
-                                if(b.innerText === winner.name) b.classList.add('correct');
-                            });
-                            document.getElementById('quiz-feedback').innerText = `خطأ.. اللون كان ${winner.name}`;
-                            document.getElementById('quiz-feedback').style.color = "red";
+                            Array.from(box.children).forEach(b => { if(b.innerText === winner.name) b.classList.add('correct'); });
+                            document.getElementById('q-msg').innerText = `غلط.. دي كانت ${winner.name}`;
+                            document.getElementById('q-msg').style.color = "red";
                         }
-                        document.getElementById('quiz-next-btn').style.display = 'inline-block';
-                    }
-                    optsDiv.appendChild(btn);
+                        document.getElementById('q-next').style.display = 'block';
+                    };
+                    box.appendChild(btn);
                 });
             }
         };
 
-        // تشغيل التطبيق
-        window.onload = function() {
-            app.init();
-        };
-
-        // إغلاق المودال عند النقر في الخارج
-        document.getElementById('modal-backdrop').addEventListener('click', function(e) {
-            if (e.target === this) app.closeModal();
-        });
-
+        window.onload = () => app.init();
     </script>
 </body>
 </html>
